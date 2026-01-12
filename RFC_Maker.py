@@ -13,30 +13,35 @@ class Cavity:
         "bp_length": 0.0,
         "bp_radius": 0.0
     }
-    def __init__(self):
-        return self
-        
     
+        
     def draw(self):
         """Return a list of points wich will be used to generate the Autofish file."""
+        
         coordinates = (
             (0, 0),
             (0, self.settings["cell_radius"]),
-            (self.settings["cell_length"], self.settings["cell_radius"]),
-            (self.settings["cell_length"], self.settings["bp_radius"]),
-            (self.settings["cell_length"] + self.settings["bp_length"], self.settings["bp_radius"]),
-            (self.settings["cell_length"] + self.settings["bp_length"], 0),
+            (self.len_cell, self.settings["cell_radius"]),
+            (self.len_cell, self.settings["bp_radius"]),
+            (self.len_cell + self.settings["bp_length"], self.settings["bp_radius"]),
+            (self.len_cell + self.settings["bp_length"], 0),
             (0, 0)
             )
         return coordinates
     
+    def __init__(self):
+        self.len_cell = self.settings["cell_length"] * 0.5
+        
+        return None
+    
     def generate(self):
-        self.settings["drive point"] = (self.settings["cell_length"]/2, self.settings["cell_radius"]/2)
+        self.settings["drive point"] = (self.len_cell/2, self.settings["cell_radius"]/2)
         filename = f"{self.settings["name"]}.af"
-        header = f"{self.settings["title"]}\n\n$reg kprob = 1, \ndx = .2,\nfreq = {self.settings["freq"]},\nbeta = {self.settings["beta"]},\nezero = {self.settings["E0"]},\nrmass = {self.settings["rmass"]},\nnbsup = {self.settings["BoundarieConditions"]["up"]},\nnbslo = {self.settings["BoundarieConditions"]["low"]},\nnbsrt = {self.settings["BoundarieConditions"]["right"]},\nnbslf = {self.settings["BoundarieConditions"]["left"]},\nxdri = {self.settings["drive point"][0]},\nydri = {self.settings["drive point"][1]},\nclength = {self.settings["cell_length"]} $\n\n"
-        coordinates = self.draw()
+        header = f"{self.settings["title"]}\n\n$reg kprob = 1,\nkmethod = 1,\ndx = .2,\nfreq = {self.settings["freq"]},\nbeta = {self.settings["beta"]},\nezero = {self.settings["E0"]},\nrmass = {self.settings["rmass"]},\nnbsup = {self.settings["BoundaryConditions"]["up"]},\nnbslo = {self.settings["BoundaryConditions"]["low"]},\nnbsrt = {self.settings["BoundaryConditions"]["right"]},\nnbslf = {self.settings["BoundaryConditions"]["left"]},\nxdri = {self.settings["drive point"][0]},\nydri = {self.settings["drive point"][1]},\nclength = {self.len_cell} $\n\n"
+        print(header)
+        coordenadas = draw()
         with open(filename, "w") as f:
             f.write(header)
-            for coordinate in coordinates:
-                f.write(f"$po x={coordinate[0]},y={coordinate[1]}")
+            for coordinate in coordenadas:
+                f.write(f"$po x={coordinate[0]},y={coordinate[1]} $\n")
             

@@ -1,0 +1,23 @@
+RF cavity
+
+$reg kprob = 1, 
+dx = .2,
+freq = 500,
+beta = 1.0,
+ezero = 1000000.0,
+rmass = 0.551,
+nbsup = 1,
+nbslo = 0,
+nbsrt = 1,
+nbslf = 1,
+xdri = 7.5,
+ydri = 11.48,
+clength = 15.0 $
+
+$po x=0,y=0 $
+$po x=0,y=22.96 $
+$po x=15.0,y=22.96 $
+$po x=15.0,y=1.0 $
+$po x=18.0,y=1.0 $
+$po x=18.0,y=0 $
+$po x=0,y=0 $
