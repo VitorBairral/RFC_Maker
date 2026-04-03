@@ -1,0 +1,37 @@
+CAVIDADE RF TM020
+$reg kprob=1,
+kmethod=1,
+dx=.1,
+dy=0.1,
+            freq=508.58,
+            beta=1,
+	    norm=1,
+            ezerot=3260869.57,
+            clength=18.8,
+            rmass=0.511,
+            nbsup = 1,
+            nbslo = 0,
+            nbsrt = 1,
+            nbslf = 1,
+            xdri=7.5,
+            ydri=11.48,
+            zctr=17.8$
+
+$po x=0,y=0$
+$po x=0,y=3.5$
+$po x=6.625,y=3.5$
+$po nt=4 x0=6.625, y0=4.375, r=0.87, theta=55, radius=0.875$
+$po x=4.875, y=6.71$
+$po nt=5, x0=6.1875, y0=8.75, radius=2.1875, r=2.1875, theta=189$
+$po x=4, y=34.$
+$po nt=4 x0=3.5, radius=0.5, y0=34.0, r=0.5, theta=90$
+$po x=0, y=34.5$
+$po x=0, y=35.5$
+$po x=3.5, y=35.5$
+$po nt=4, x0=3.5,y0=36, r=0.5, theta=0, radius=0.5$
+$po x=4, y=41.02$
+$po nt=5, x0=15,y0=41.02, radius=11 r=11, theta=90$
+$po x=17.8, y=52.02$
+$po x=17.8, y=0$
+$po x=0.0, y=0.0$
+
