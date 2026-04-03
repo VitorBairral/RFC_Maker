@@ -1,0 +1,49 @@
+; This file contains start-up settings for Tablplot
+MainWindowXPosition= 1912
+MainWindowYPosition=  113
+MainWindowWidth= 1440
+MainWindowHeight=  795
+EditWindowXPosition=   -1
+EditWindowYPosition=   -1
+EditWindowWidth=   -1
+EditWindowHeight=   -1
+IntegrateWindowXPosition=   -1
+IntegrateWindowYPosition=   -1
+YvsXWindowXPosition=   -1
+YvsXWindowYPosition=   -1
+ZoomWindowXPosition=   -1
+ZoomWindowYPosition=   -1
+WidthWindowXPosition=   -1
+WidthWindowYPosition=   -1
+SelectDataWindowXPosition= 2442
+SelectDataWindowYPosition=  337
+SortDataWindowXPosition=   -1
+SortDataWindowYPosition=   -1
+PointLabelWindowXPosition=   -1
+PointLabelWindowYPosition=   -1
+EditDataWindowXPosition=   -1
+EditDataWindowYPosition=   -1
+SelectFitXPosition=   -1
+SelectFitYPosition=   -1
+BuildColumnXPosition=   -1
+BuildColumnYPosition=   -1
+YLabelXPosition=   -1
+YLabelYPosition=   -1
+MarkerSizeXPosition=   -1
+MarkerSizeYPosition=   -1
+HardcopyFileExtension=    
+CurveLineWidth=1
+AxisLineWidth=1
+TitleStatus=1
+LabelStatus=1
+ConnectStatus=1
+MarkersStatus=1
+XlinLogStatus=LIN
+YLinLogStatus=LIN
+LastPlotFile=C:\Users\vitor25023\Documents\Fazendo isso direito agora com a ferrite\Frqscans\Nova pasta\FishScan.TBL
+ZoomLimits  1     200.00000       2495.0000      0.37107482E-04  0.69795310E-01
+ZoomLimits  2     2229.0601       2410.3503     -0.41321949E-02  0.10744164E-01
+ZoomLimits  3     2316.0078       2346.6951     -0.36085818E-02  0.22406662E-02
+ZoomLimits  4     2321.9880       2329.5801     -0.70327742E-03  0.14504150E-02
+ZoomLevel=1
+MaxZoomLevel=4

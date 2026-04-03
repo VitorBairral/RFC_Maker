@@ -1,0 +1,1001 @@
+Los Alamos National Laboratory Poisson Superfish
+Program SFO written by James H. Billen and Lloyd M. Young
+
+The original Poisson Superfish codes were developed
+by Ron F. Holsinger in collaboration with Klaus Halbach.
+These programs are provided as a service to the accelerator
+community by the Los Alamos Accelerator Code Group (LAACG).
+
+(c) Copyright 1985-2005, by the Regents of the University of California.        
+This software was produced under U. S. Government contract W-7405-ENG-36        
+by Los Alamos National Laboratory, which is operated by the University          
+of California for the U. S. Department of Energy.  Neither the Government       
+nor the University makes any warranty, express or implied, or assumes           
+any liability or responsibility for its use, or represents that use of          
+this software would not infringe privately owned rights.                        
+Unpublished - rights reserved under Copyright Laws of the United States.        
+
+
+Program SFO  7.17  released 1-13-2006 
+
+Solution file C:\Users\vitor25023\Documents\Teste em lote\((5.0, 2.5)).T35.
+Program file: C:\LANL\AUTOFISH.EXE
+SF.INI file: C:\LANL\SF.INI  1-05-2026  14:43:34
+Memory used for ((5.0, 2.5)).T35 arrays:     504.288 K
+
+Problem description:
+            teste
+Problem file: C:\USERS\VITOR25023\DOCUMENTS\TESTE EM LOTE\((5.0, 2.5)).AF  1-12-2026  16:41:56
+Problem file length:         630 bytes
+Originating program: Autofish    Problem type: Unknown RF Cavity
+
+Coordinates and lengths have dimensions of centimeters.
+
+Problem constants and variables.
+Letter A in the code column indicates a value supplied in the
+Automesh input file.
+Letter S in the code column indicates a value supplied in the
+SFO input file.
+
+Variable Code         Value     Description
+ALPHAT          3.930000000E-03 Temperature coefficient of resistance
+ASCALE           3767.30313     Scaling factor for H at drive point
+BETA       A     1.00000000     Particle velocity
+BETA1           0.100000000     Starting BETA in transit-time table
+BETA2           0.950000000     Ending BETA in transit-time table
+CCLDELK          1.00000000     Increment for coupling for table in SFO
+CCLMAXK          6.00000000     Highest coupling for table in SFO
+CCLMINK          1.00000000     Lowest coupling for table in SFO
+CLENGTH                 0.0     Cavity length for normalization in SFO
+CLIGHT          2.997924580E+10 Exact speed of light in cm/sec
+CONV             1.00000000     Length conversion (number of units per cm)
+DBETA           5.000000000E-02 BETA increment in transit-time table
+DELFR                   0.0     Frequency step size for a resonance search
+DIAGDLL                   0     If 1, DLL writes diagnostics to DiagDLL.txt
+DKSQ           -4.705333624E-09 Change in k^2 after an iteration in Fish
+DPHI             180.000000     Phase length of the problem geometry
+DSLOPE          -1.00122613     Slope of D(k^2) function
+DSTOLER         2.000000000E-02 Tolerance required on D(k^2)
+DX1             0.200000000     First X mesh interval (at XMIN)
+DXMIN           0.200000000     Minimum X mesh interval (found by Automesh)
+DYMIN           0.172631579     Minimum Y mesh interval (found by Automesh)
+ENORM            1000000.00     Field normalization for NORM=4 option
+EPS0            8.854187818E-12 Permittivity of free space
+EPSIK           1.000000000E-04 Frequency convergence parameter
+EPSO            1.000000000E-05 Convergence parameter in mesh optimization
+ERG              4317.30685     Integral (H^2 r dr dz)
+EZERO      A     2617993.88     E0 for normalization in SFO when NORM=0
+EZEROT           1000000.00     E0*T for normalization in SFO when NORM=1
+FMU0            1.256637061E-06 Permeability of free space
+FREQ             500.087250     RF cavity resonant frequency
+FREQD                   0.0     Design frequency for a cavity (MHz)
+HPHI             5000.00000     Normalization magnetic field for NORM=2
+IBETA                     0     If >0, SFO writes transit-time vs BETA
+ICCC                      1     1 for real arrays, 2 for complex arrays
+ICCP                      1     If 1, compute material power loss
+ICORNER1                  0     First corner segment for computing average H
+ICORNER2                  0     Last corner segment for computing average H
+ICYCLE                    2     Present iteration number
+ICYLIN                    1     0 for X,Y problems, 1 for Z,R problems
+IMAX                    103     KMAX+2
+INFODATA                  0     Number of tuning-code parameters
+IOBSEG                   -1     First segment of the CCL outer boundary
+IPIVOT                    1     Pivoting in matrix inversion routines
+IRESID                    0     If 1, calculate potential residuals
+IRMAX                    25     Used in optimization of RHOXY
+IRTYPE                    0     Surface resistance option indicator
+ISLOT                     0     If 1, SFO computes coupling-slot power loss
+ITFILE                    0     If 1, SFO writes transit-time plot file
+ITOT                  14008     (KMAX+2)*(LMAX+2)
+KDRI                     38     K coordinate of the drive point
+KMAX                    101     Number of horizontal logical mesh points
+KMETHOD    A              1     Wavenumber computation method (1= use beta)
+KPROB      A              1     Problem type indicator (Superfish)
+LAST35                    1     Code for last program to update T35 file
+LCYCLE                  107     Iteration number in mesh optimization
+LDRI                     67     L coordinate of the drive point
+LINT                      1     Logical-mesh coordinate for Ez integration
+LMAX                    134     Number of vertical logical mesh points
+MAXCY                    19     Maximum number of cycles (-1: use default)
+MAXPPR                  468     Maximum points per region
+METHOD                    3     Method used to get frequency in root finder
+NAIR                  10457     Number of air points
+NBND                    101     Number of Dirichlet boundary points
+NBSLF      A              1     Left-side boundary condition
+NBSLO      A              0     Lower boundary condition
+NBSRT      A              1     Right-side boundary condition
+NBSUP      A              1     Upper boundary condition
+NDRI                   6940     Drive point index = IRLAX(NPINP)
+NEGAT                     0     Zero-area triangle indicator
+NFE                       0     Number of iron points
+NHSTEM                    1     Number of half stems
+NINTER                    0     Number of interface points
+NMATR                     0     Number of material records in T35 file
+NORM                      0     Normalization method in SFO
+NPBOUND                 467     Total number of boundary points in the mesh
+NPINP                 10559     Total points in problem
+NPONTS                10092     Number of unknown relaxation points
+NREG                      2     Number of regions
+NRMSEG                    1     Normalization segment number for NORM=2
+NSEG                      6     Number of boundary segments
+NSPL                      1     Number of special-potential points
+NSTEP                     0     Number of steps for a resonance search
+OMEGAM          1.000000000E-03 Used in optimization of RHOXY
+PI               3.14159265     The number pi to machine precision
+PLCELL           360.000000     Phase length per cell for multicell problems
+Q2I                     0.0     1/2Q passed from CFish to SFO
+RESIDR          1.000000000E-08 Residual resistance of a superconductor
+RESIK           4.283311768E-07 Residual = DKSQ/XKSQ
+RFMU             1.00000000     Permeability for rf surface resistance
+RHO             1.724100000E-06 Material resistivity (Ohm-m)
+RHOR            1.724100000E-06 Reference resistivity (Ohm-cm) at TEMPR
+RHOXY            1.60000000     Over-relaxation factor in mesh optimization
+RMASS      A    0.511000000     Rest mass energy of particle in SFO
+RSTEM            1.00000000     Stem radius in cm
+SLOSS           3.000000000E-02 Coupling-slot power factor per % coupling
+TC               9.20000000     Critical temperature of a superconductor
+TEMPC            20.0000000     Normal conductor operating temperature
+TEMPK            2.00000000     Operating temperature of a superconductor
+TEMPR            20.0000000     Reference temperature for IRTYPE=3
+TRIAVG          1.728329298E-02 Average area of all triangles
+TRIMAX          2.358852922E-02 Area of the largest positive-area triangle
+TRIMIN          1.032242743E-02 Area of the smallest positive-area triangle
+VOLUME           24940.0799     Cavity volume (cylindrical symmetry only)
+XDRI       A     7.44637829     X coordinate of the drive point
+XK0             0.104810537     The wave number k = 2pif/c
+XKSQ            1.098524873E-02 Square of the wave number
+XMAXG            20.0000000     Upper X bound of the problem geometry
+XMING                   0.0     Lower X bound of the problem geometry
+XNORM1                  0.0     Starting X for NORM=4 integration path
+XNORM2                  0.0     Ending X for NORM=4 integration path
+XYAREA           356.900000     Total cross sectional area
+YDRI       A     11.4113534     Y coordinate of the drive point
+YMAXG            22.9600000     Upper Y bound of the problem geometry
+YMING                   0.0     Lower Y bound of the problem geometry
+YNORM1                  0.0     Starting Y for NORM=4 integration path
+YNORM2                  0.0     Ending Y for NORM=4 integration path
+ZCTR       A            0.0     Reference Z in transit-time integrals
+-------------------------------------------------------------------------------
+Segment numbers for field calculations
+[Note: negative values indicate stem segments.]
+     2     3     4
+-------------------------------------------------------------------------------
+No materials other than air or empty space.
+-------------------------------------------------------------------------------
+The field normalization factor ASCALE for this problem is based
+upon the calculated cavity length ZLONG  =    20.00000000.
+
+Transit-time factor integrals and partial derivatives with repect to k
+TT = (1/V0)Int{Ez(z) cos k(z-Zc) dz} - tan(phi)(1/V0)Int{Ez(z) sin k(z-Zc) dz}
+TT = T - tan(phi) S
+T' and S' are partial derivative with respect to k.
+T" and S" are second partial derivatives.
+
+For symmetric half cells (Zs = Zc), the computations are done using
+integration limits Zs to Ze, but reported results correspond to a lower
+limit of integration equal to -Ze.
+
+Integrals along logical row L = 1 [R = 0.0 cm]
+between logical coordinates K = 1 and 100
+
+Integration lower limit:   Zs =    0.0000000 cm   (See note above.)
+Integration upper limit:   Ze =   20.0000000 cm
+Center of gap:             Zc =    0.0000000 cm
+Electrical center:        Zec =    0.0000000 cm
+Frequency for T integrals     =  500.0872499 MHz
+Wave number:    k = 2pif/c    =    0.1048105 radians/cm
+Particle velocity:    beta    =    1.0000000
+Structure wave number: k/beta =    0.1048105 radians/cm
+           V0 = Int{Ez(z) dz} =    5.23599E+05 V
+     E0 = (1/L)*Int{Ez(z) dz} =    2.61799E+06 V/m
+Treating the problem geometry as a single half cell:
+          Transit-time factor =    0.621858 (when Zc = Zec)
+                           T  =    0.621858    
+                           S  =     0.00000    
+                           T' =    0.103831    
+                           S' =     0.00000    
+                           T" =    6.731129E-03
+                           S" =     0.00000    
+-------------------------------------------------------------------------------
+Electric field along R =         0.000000
+for normalization ASCALE =   17345.950370:
+
+    Z(cm)      Ez(V/m)
+   0.00000   3.487475E+06
+   0.12008   3.487475E+06
+   0.20000   3.487478E+06
+   0.30783   3.487467E+06
+   0.40000   3.487465E+06
+   0.50466   3.487448E+06
+   0.60000   3.487431E+06
+   0.70336   3.487406E+06
+   0.80000   3.487379E+06
+   0.90265   3.487346E+06
+   1.00000   3.487310E+06
+   1.10221   3.487270E+06
+   1.20000   3.487226E+06
+   1.30191   3.487178E+06
+   1.40000   3.487126E+06
+   1.50170   3.487069E+06
+   1.60000   3.487009E+06
+   1.70154   3.486943E+06
+   1.80000   3.486875E+06
+   1.90142   3.486801E+06
+   2.00000   3.486723E+06
+   2.10133   3.486640E+06
+   2.20000   3.486552E+06
+   2.30125   3.486460E+06
+   2.40000   3.486363E+06
+   2.50119   3.486260E+06
+   2.60000   3.486153E+06
+   2.70114   3.486040E+06
+   2.80000   3.485923E+06
+   2.90111   3.485799E+06
+   3.00000   3.485670E+06
+   3.10108   3.485534E+06
+   3.20000   3.485393E+06
+   3.30105   3.485245E+06
+   3.40000   3.485092E+06
+   3.50103   3.484931E+06
+   3.60000   3.484764E+06
+   3.70102   3.484590E+06
+   3.80000   3.484408E+06
+   3.90100   3.484219E+06
+   4.00000   3.484022E+06
+   4.10100   3.483817E+06
+   4.20000   3.483604E+06
+   4.30099   3.483382E+06
+   4.40000   3.483151E+06
+   4.50099   3.482910E+06
+   4.60000   3.482661E+06
+   4.70099   3.482400E+06
+   4.80000   3.482130E+06
+   4.90099   3.481848E+06
+   5.00000   3.481556E+06
+   5.10099   3.481250E+06
+   5.20000   3.480934E+06
+   5.30100   3.480603E+06
+   5.40000   3.480260E+06
+   5.50100   3.479902E+06
+   5.60000   3.479531E+06
+   5.70101   3.479143E+06
+   5.80000   3.478740E+06
+   5.90102   3.478319E+06
+   6.00000   3.477881E+06
+   6.10103   3.477424E+06
+   6.20000   3.476949E+06
+   6.30104   3.476452E+06
+   6.40000   3.475935E+06
+   6.50105   3.475394E+06
+   6.60000   3.474831E+06
+   6.70107   3.474242E+06
+   6.80000   3.473628E+06
+   6.90108   3.472985E+06
+   7.00000   3.472314E+06
+   7.10110   3.471612E+06
+   7.20000   3.470878E+06
+   7.30112   3.470110E+06
+   7.40000   3.469305E+06
+   7.50114   3.468463E+06
+   7.60000   3.467580E+06
+   7.70116   3.466655E+06
+   7.80000   3.465683E+06
+   7.90118   3.464665E+06
+   8.00000   3.463594E+06
+   8.10121   3.462471E+06
+   8.20000   3.461288E+06
+   8.30123   3.460047E+06
+   8.40000   3.458737E+06
+   8.50126   3.457363E+06
+   8.60000   3.455909E+06
+   8.70128   3.454383E+06
+   8.80000   3.452766E+06
+   8.90131   3.451068E+06
+   9.00000   3.449264E+06
+   9.10134   3.447368E+06
+   9.20000   3.445350E+06
+   9.30137   3.443229E+06
+   9.40000   3.440966E+06
+   9.50141   3.438586E+06
+   9.60000   3.436040E+06
+   9.70144   3.433361E+06
+   9.80000   3.430488E+06
+   9.90148   3.427464E+06
+  10.00000   3.424213E+06
+  10.10152   3.420788E+06
+  10.20000   3.417096E+06
+  10.30156   3.413205E+06
+  10.40000   3.408999E+06
+  10.50160   3.404564E+06
+  10.60000   3.399756E+06
+  10.70165   3.394685E+06
+  10.80000   3.389171E+06
+  10.90169   3.383352E+06
+  11.00000   3.377006E+06
+  11.10174   3.370306E+06
+  11.20000   3.362979E+06
+  11.30178   3.355239E+06
+  11.40000   3.346753E+06
+  11.50183   3.337780E+06
+  11.60000   3.327921E+06
+  11.70188   3.317487E+06
+  11.80000   3.306001E+06
+  11.90193   3.293832E+06
+  12.00000   3.280417E+06
+  12.10197   3.266186E+06
+  12.20000   3.250490E+06
+  12.30201   3.233809E+06
+  12.40000   3.215419E+06
+  12.50205   3.195833E+06
+  12.60000   3.174279E+06
+  12.70208   3.151259E+06
+  12.80000   3.126011E+06
+  12.90211   3.098954E+06
+  13.00000   3.069437E+06
+  13.10212   3.037671E+06
+  13.20000   3.003279E+06
+  13.30212   2.966084E+06
+  13.40000   2.926220E+06
+  13.50210   2.882862E+06
+  13.60000   2.836978E+06
+  13.70207   2.786771E+06
+  13.80000   2.734437E+06
+  13.90201   2.676826E+06
+  14.00000   2.617801E+06
+  14.10193   2.552479E+06
+  14.20000   2.486784E+06
+  14.30182   2.413814E+06
+  14.40000   2.341803E+06
+  14.50170   2.261736E+06
+  14.60000   2.184145E+06
+  14.70155   2.098095E+06
+  14.80000   2.016050E+06
+  14.90140   1.925685E+06
+  15.00000   1.840673E+06
+  15.10124   1.748102E+06
+  15.20000   1.661876E+06
+  15.30109   1.569442E+06
+  15.40000   1.483881E+06
+  15.50095   1.393903E+06
+  15.60000   1.310838E+06
+  15.70083   1.225356E+06
+  15.80000   1.146415E+06
+  15.90073   1.067012E+06
+  16.00000   9.934906E+05
+  16.10065   9.212069E+05
+  16.20000   8.540044E+05
+  16.30060   7.893511E+05
+  16.40000   7.289584E+05
+  16.50058   6.719936E+05
+  16.60000   6.185342E+05
+  16.70060   5.689732E+05
+  16.80000   5.222725E+05
+  16.90064   4.796011E+05
+  17.00000   4.392688E+05
+  17.10074   4.028430E+05
+  17.20000   3.683529E+05
+  17.30087   3.374764E+05
+  17.40000   3.082341E+05
+  17.50107   2.822130E+05
+  17.60000   2.576082E+05
+  17.70134   2.357865E+05
+  17.80000   2.152293E+05
+  17.90170   1.970092E+05
+  18.00000   1.799530E+05
+  18.10218   1.648039E+05
+  18.20000   1.507579E+05
+  18.30282   1.382191E+05
+  18.40000   1.267530E+05
+  18.50368   1.164313E+05
+  18.60000   1.071758E+05
+  18.70483   9.874118E+04
+  18.80000   9.138513E+04
+  18.90644   8.456503E+04
+  19.00000   7.885143E+04
+  19.10877   7.342512E+04
+  19.20000   6.914937E+04
+  19.31246   6.494221E+04
+  19.40000   6.212058E+04
+  19.51923   5.902333E+04
+  19.60000   5.714038E+04
+  19.73581   5.500377E+04
+  19.80000   5.429800E+04
+  20.00000   5.327934E+04
+Total cavity stored energy (from program Fish):   3.6133308E-01 Joules
+-------------------------------------------------------------------------------
+Power and fields on wall segment 2.     K,L = 1,134 to 76,134
+This segment uses surface resistance option IRTYPE = 0
+Surface resistance,          Rs =  5.834236E-03 Ohm calculated from:
+Operating temperature,    TEMPC =  20.000 C
+Reference resistivity,     RHOR =  1.724100E-06 Ohm-cm
+Reference temperature,    TEMPR =  20.000 C
+Temperature coefficient, ALPHAT =  3.930000E-03 /C
+Relative permeability,     RFMU =  1.000
+
+   m     K     L        Z             R            H          |E|
+                      (cm)          (cm)         (A/m)       (V/m)
+    1     1   134   0.00000       22.9600      4.8153E+03  0.0000E+00
+                   0.100000       22.9600      4.8153E+03  1.5726E+02
+    2     2   134  0.200000       22.9600      4.8153E+03  1.1831E+02
+                   0.300000       22.9600      4.8153E+03  1.7747E+02
+    3     3   134  0.400000       22.9600      4.8153E+03  2.3663E+02
+                   0.500000       22.9600      4.8153E+03  4.4647E+01
+    4     4   134  0.600000       22.9600      4.8153E+03  5.3577E+01
+                   0.700000       22.9600      4.8153E+03  3.7663E+01
+    5     5   134  0.800000       22.9600      4.8153E+03  7.0592E+01
+                   0.900000       22.9600      4.8153E+03  7.3390E+01
+    6     6   134   1.00000       22.9600      4.8153E+03  8.5506E+01
+                    1.10000       22.9600      4.8153E+03  9.9032E+01
+    7     7   134   1.20000       22.9600      4.8153E+03  1.0510E+02
+                    1.30000       22.9600      4.8153E+03  1.2057E+02
+    8     8   134   1.40000       22.9600      4.8153E+03  1.2469E+02
+                    1.50000       22.9600      4.8153E+03  1.4052E+02
+    9     9   134   1.60000       22.9600      4.8153E+03  1.4380E+02
+                    1.70000       22.9600      4.8153E+03  1.5968E+02
+   10    10   134   1.80000       22.9600      4.8153E+03  1.6250E+02
+                    1.90000       22.9600      4.8153E+03  1.7832E+02
+   11    11   134   2.00000       22.9600      4.8153E+03  1.8083E+02
+                    2.10000       22.9600      4.8153E+03  1.9656E+02
+   12    12   134   2.20000       22.9600      4.8153E+03  1.9879E+02
+                    2.30000       22.9600      4.8153E+03  2.1440E+02
+   13    13   134   2.40000       22.9600      4.8152E+03  2.1639E+02
+                    2.50000       22.9600      4.8152E+03  2.3185E+02
+   14    14   134   2.60000       22.9600      4.8152E+03  2.3362E+02
+                    2.70000       22.9600      4.8152E+03  2.4891E+02
+   15    15   134   2.80000       22.9600      4.8152E+03  2.5044E+02
+                    2.90000       22.9600      4.8152E+03  2.6554E+02
+   16    16   134   3.00000       22.9600      4.8152E+03  2.6684E+02
+                    3.10000       22.9600      4.8152E+03  2.8173E+02
+   17    17   134   3.20000       22.9600      4.8152E+03  2.8279E+02
+                    3.30000       22.9600      4.8152E+03  2.9746E+02
+   18    18   134   3.40000       22.9600      4.8152E+03  2.9827E+02
+                    3.50000       22.9600      4.8152E+03  3.1271E+02
+   19    19   134   3.60000       22.9600      4.8152E+03  3.1325E+02
+                    3.70000       22.9600      4.8151E+03  3.2744E+02
+   20    20   134   3.80000       22.9600      4.8151E+03  3.2771E+02
+                    3.90000       22.9600      4.8151E+03  3.4163E+02
+   21    21   134   4.00000       22.9600      4.8151E+03  3.4162E+02
+                    4.10000       22.9600      4.8151E+03  3.5527E+02
+   22    22   134   4.20000       22.9600      4.8151E+03  3.5496E+02
+                    4.30000       22.9600      4.8151E+03  3.6832E+02
+   23    23   134   4.40000       22.9600      4.8151E+03  3.6772E+02
+                    4.50000       22.9600      4.8151E+03  3.8077E+02
+   24    24   134   4.60000       22.9600      4.8151E+03  3.7985E+02
+                    4.70000       22.9600      4.8150E+03  3.9259E+02
+   25    25   134   4.80000       22.9600      4.8150E+03  3.9135E+02
+                    4.90000       22.9600      4.8150E+03  4.0377E+02
+   26    26   134   5.00000       22.9600      4.8150E+03  4.0219E+02
+                    5.10000       22.9600      4.8150E+03  4.1427E+02
+   27    27   134   5.20000       22.9600      4.8150E+03  4.1235E+02
+                    5.30000       22.9600      4.8150E+03  4.2408E+02
+   28    28   134   5.40000       22.9600      4.8150E+03  4.2181E+02
+                    5.50000       22.9600      4.8150E+03  4.3319E+02
+   29    29   134   5.60000       22.9600      4.8149E+03  4.3056E+02
+                    5.70000       22.9600      4.8149E+03  4.4157E+02
+   30    30   134   5.80000       22.9600      4.8149E+03  4.3857E+02
+                    5.90000       22.9600      4.8149E+03  4.4920E+02
+   31    31   134   6.00000       22.9600      4.8149E+03  4.4583E+02
+                    6.10000       22.9600      4.8149E+03  4.5608E+02
+   32    32   134   6.20000       22.9600      4.8149E+03  4.5232E+02
+                    6.30000       22.9600      4.8149E+03  4.6218E+02
+   33    33   134   6.40000       22.9600      4.8148E+03  4.5803E+02
+                    6.50000       22.9600      4.8148E+03  4.6750E+02
+   34    34   134   6.60000       22.9600      4.8148E+03  4.6294E+02
+                    6.70000       22.9600      4.8148E+03  4.7201E+02
+   35    35   134   6.80000       22.9600      4.8148E+03  4.6705E+02
+                    6.90000       22.9600      4.8148E+03  4.7571E+02
+   36    36   134   7.00000       22.9600      4.8148E+03  4.7034E+02
+                    7.10000       22.9600      4.8147E+03  4.7859E+02
+   37    37   134   7.20000       22.9600      4.8147E+03  4.7281E+02
+                    7.30000       22.9600      4.8147E+03  4.8064E+02
+   38    38   134   7.40000       22.9600      4.8147E+03  4.7444E+02
+                    7.50000       22.9600      4.8147E+03  4.8184E+02
+   39    39   134   7.60000       22.9600      4.8147E+03  4.7522E+02
+                    7.70000       22.9600      4.8147E+03  4.8221E+02
+   40    40   134   7.80000       22.9600      4.8147E+03  4.7516E+02
+                    7.90000       22.9600      4.8146E+03  4.8172E+02
+   41    41   134   8.00000       22.9600      4.8146E+03  4.7425E+02
+                    8.10000       22.9600      4.8146E+03  4.8038E+02
+   42    42   134   8.20000       22.9600      4.8146E+03  4.7248E+02
+                    8.30000       22.9600      4.8146E+03  4.7818E+02
+   43    43   134   8.40000       22.9600      4.8146E+03  4.6986E+02
+                    8.50000       22.9600      4.8146E+03  4.7513E+02
+   44    44   134   8.60000       22.9600      4.8145E+03  4.6638E+02
+                    8.70000       22.9600      4.8145E+03  4.7123E+02
+   45    45   134   8.80000       22.9600      4.8145E+03  4.6205E+02
+                    8.90000       22.9600      4.8145E+03  4.6648E+02
+   46    46   134   9.00000       22.9600      4.8145E+03  4.5688E+02
+                    9.10000       22.9600      4.8145E+03  4.6088E+02
+   47    47   134   9.20000       22.9600      4.8145E+03  4.5086E+02
+                    9.30000       22.9600      4.8145E+03  4.5444E+02
+   48    48   134   9.40000       22.9600      4.8144E+03  4.4400E+02
+                    9.50000       22.9600      4.8144E+03  4.4718E+02
+   49    49   134   9.60000       22.9600      4.8144E+03  4.3632E+02
+                    9.70000       22.9600      4.8144E+03  4.3909E+02
+   50    50   134   9.80000       22.9600      4.8144E+03  4.2782E+02
+                    9.90000       22.9600      4.8144E+03  4.3019E+02
+   51    51   134   10.0000       22.9600      4.8144E+03  4.1852E+02
+                    10.1000       22.9600      4.8144E+03  4.2049E+02
+   52    52   134   10.2000       22.9600      4.8143E+03  4.0843E+02
+                    10.3000       22.9600      4.8143E+03  4.1001E+02
+   53    53   134   10.4000       22.9600      4.8143E+03  3.9756E+02
+                    10.5000       22.9600      4.8143E+03  3.9877E+02
+   54    54   134   10.6000       22.9600      4.8143E+03  3.8594E+02
+                    10.7000       22.9600      4.8143E+03  3.8677E+02
+   55    55   134   10.8000       22.9600      4.8143E+03  3.7358E+02
+                    10.9000       22.9600      4.8143E+03  3.7405E+02
+   56    56   134   11.0000       22.9600      4.8143E+03  3.6049E+02
+                    11.1000       22.9600      4.8142E+03  3.6062E+02
+   57    57   134   11.2000       22.9600      4.8142E+03  3.4672E+02
+                    11.3000       22.9600      4.8142E+03  3.4651E+02
+   58    58   134   11.4000       22.9600      4.8142E+03  3.3226E+02
+                    11.5000       22.9600      4.8142E+03  3.3173E+02
+   59    59   134   11.6000       22.9600      4.8142E+03  3.1716E+02
+                    11.7000       22.9600      4.8142E+03  3.1632E+02
+   60    60   134   11.8000       22.9600      4.8142E+03  3.0144E+02
+                    11.9000       22.9600      4.8142E+03  3.0030E+02
+   61    61   134   12.0000       22.9600      4.8142E+03  2.8512E+02
+                    12.1000       22.9600      4.8142E+03  2.8370E+02
+   62    62   134   12.2000       22.9600      4.8142E+03  2.6823E+02
+                    12.3000       22.9600      4.8141E+03  2.6655E+02
+   63    63   134   12.4000       22.9600      4.8141E+03  2.5081E+02
+                    12.5000       22.9600      4.8141E+03  2.4887E+02
+   64    64   134   12.6000       22.9600      4.8141E+03  2.3288E+02
+                    12.7000       22.9600      4.8141E+03  2.3071E+02
+   65    65   134   12.8000       22.9600      4.8141E+03  2.1447E+02
+                    12.9000       22.9600      4.8141E+03  2.1208E+02
+   66    66   134   13.0000       22.9600      4.8141E+03  1.9560E+02
+                    13.1000       22.9600      4.8141E+03  1.9300E+02
+   67    67   134   13.2000       22.9600      4.8141E+03  1.7631E+02
+                    13.3000       22.9600      4.8141E+03  1.7351E+02
+   68    68   134   13.4000       22.9600      4.8141E+03  1.5659E+02
+                    13.5000       22.9600      4.8141E+03  1.5359E+02
+   69    69   134   13.6000       22.9600      4.8141E+03  1.3643E+02
+                    13.7000       22.9600      4.8141E+03  1.3319E+02
+   70    70   134   13.8000       22.9600      4.8141E+03  1.1574E+02
+                    13.9000       22.9600      4.8141E+03  1.1213E+02
+   71    71   134   14.0000       22.9600      4.8141E+03  9.4173E+01
+                    14.1000       22.9600      4.8141E+03  8.9731E+01
+   72    72   134   14.2000       22.9600      4.8141E+03  7.0414E+01
+                    14.3000       22.9600      4.8140E+03  6.3857E+01
+   73    73   134   14.4000       22.9600      4.8140E+03  3.9631E+01
+                    14.5000       22.9600      4.8140E+03  4.1105E+01
+   74    74   134   14.6000       22.9600      4.8140E+03  1.0150E+01
+                    14.7000       22.9600      4.8140E+03  9.5201E+01
+   75    75   134   14.8000       22.9600      4.8140E+03  6.3467E+01
+                    14.9000       22.9600      4.8140E+03  3.0661E+01
+   76    76   134   15.0000       22.9600      4.8140E+03  0.0000E+00
+
+Summary for the above wall segment:
+Emax         =  4.8221E+02 V/m
+Hmax         =  4.8153E+03 A/m
+Surface Area =  2.1639E+03 cm^2
+Power        =  1.4633E+04 W
+Maximum P/A  =  6.7640E+00 W/cm^2
+Average P/A  =  6.7622E+00 W/cm^2
+df/dr        = -2.1811E+00 MHz/mm (for volume added to the cavity)
+df/f         = -4.3614E-03
+-------------------------------------------------------------------------------
+Power and fields on wall segment 3.     K,L = 76,134 to 76,15
+This segment uses surface resistance option IRTYPE = 0
+Surface resistance,          Rs =  5.834236E-03 Ohm calculated from:
+Operating temperature,    TEMPC =  20.000 C
+Reference resistivity,     RHOR =  1.724100E-06 Ohm-cm
+Reference temperature,    TEMPR =  20.000 C
+Temperature coefficient, ALPHAT =  3.930000E-03 /C
+Relative permeability,     RFMU =  1.000
+
+   m     K     L        Z             R            H          |E|
+                      (cm)          (cm)         (A/m)       (V/m)
+    1    76   134   15.0000       22.9600      4.8140E+03  0.0000E+00
+                    15.0000       22.8740      4.8319E+03  1.6323E+04
+    2    76   133   15.0000       22.7881      4.8496E+03  3.2769E+04
+                    15.0000       22.7021      4.8670E+03  4.9340E+04
+    3    76   132   15.0000       22.6161      4.8841E+03  6.6037E+04
+                    15.0000       22.5302      4.9009E+03  8.2617E+04
+    4    76   131   15.0000       22.4442      4.9175E+03  9.9325E+04
+                    15.0000       22.3582      4.9338E+03  1.1603E+05
+    5    76   130   15.0000       22.2723      4.9499E+03  1.3274E+05
+                    15.0000       22.1863      4.9657E+03  1.4962E+05
+    6    76   129   15.0000       22.1003      4.9812E+03  1.6655E+05
+                    15.0000       22.0144      4.9965E+03  1.8348E+05
+    7    76   128   15.0000       21.9284      5.0115E+03  2.0041E+05
+                    15.0000       21.8424      5.0262E+03  2.1749E+05
+    8    76   127   15.0000       21.7565      5.0407E+03  2.3462E+05
+                    15.0000       21.6705      5.0548E+03  2.5176E+05
+    9    76   126   15.0000       21.5845      5.0687E+03  2.6889E+05
+                    15.0000       21.4986      5.0823E+03  2.8616E+05
+   10    76   125   15.0000       21.4126      5.0957E+03  3.0348E+05
+                    15.0000       21.3266      5.1087E+03  3.2079E+05
+   11    76   124   15.0000       21.2407      5.1215E+03  3.3811E+05
+                    15.0000       21.1547      5.1340E+03  3.5555E+05
+   12    76   123   15.0000       21.0687      5.1463E+03  3.7305E+05
+                    15.0000       20.9828      5.1582E+03  3.9054E+05
+   13    76   122   15.0000       20.8968      5.1698E+03  4.0802E+05
+                    15.0000       20.8108      5.1812E+03  4.2562E+05
+   14    76   121   15.0000       20.7249      5.1923E+03  4.4327E+05
+                    15.0000       20.6389      5.2031E+03  4.6092E+05
+   15    76   120   15.0000       20.5529      5.2136E+03  4.7856E+05
+                    15.0000       20.4670      5.2238E+03  4.9630E+05
+   16    76   119   15.0000       20.3810      5.2337E+03  5.1409E+05
+                    15.0000       20.2950      5.2434E+03  5.3188E+05
+   17    76   118   15.0000       20.2091      5.2527E+03  5.4967E+05
+                    15.0000       20.1231      5.2618E+03  5.6753E+05
+   18    76   117   15.0000       20.0371      5.2705E+03  5.8545E+05
+                    15.0000       19.9512      5.2790E+03  6.0336E+05
+   19    76   116   15.0000       19.8652      5.2872E+03  6.2127E+05
+                    15.0000       19.7792      5.2950E+03  6.3925E+05
+   20    76   115   15.0000       19.6933      5.3026E+03  6.5728E+05
+                    15.0000       19.6073      5.3099E+03  6.7530E+05
+   21    76   114   15.0000       19.5213      5.3169E+03  6.9331E+05
+                    15.0000       19.4354      5.3236E+03  7.1139E+05
+   22    76   113   15.0000       19.3494      5.3299E+03  7.2951E+05
+                    15.0000       19.2634      5.3360E+03  7.4762E+05
+   23    76   112   15.0000       19.1775      5.3418E+03  7.6573E+05
+                    15.0000       19.0915      5.3473E+03  7.8388E+05
+   24    76   111   15.0000       19.0055      5.3525E+03  8.0208E+05
+                    15.0000       18.9196      5.3574E+03  8.2027E+05
+   25    76   110   15.0000       18.8336      5.3619E+03  8.3846E+05
+                    15.0000       18.7476      5.3662E+03  8.5667E+05
+   26    76   109   15.0000       18.6617      5.3702E+03  8.7493E+05
+                    15.0000       18.5757      5.3738E+03  8.9318E+05
+   27    76   108   15.0000       18.4897      5.3772E+03  9.1143E+05
+                    15.0000       18.4038      5.3802E+03  9.2969E+05
+   28    76   107   15.0000       18.3178      5.3830E+03  9.4799E+05
+                    15.0000       18.2318      5.3854E+03  9.6629E+05
+   29    76   106   15.0000       18.1459      5.3875E+03  9.8458E+05
+                    15.0000       18.0599      5.3894E+03  1.0029E+06
+   30    76   105   15.0000       17.9739      5.3909E+03  1.0212E+06
+                    15.0000       17.8880      5.3921E+03  1.0395E+06
+   31    76   104   15.0000       17.8020      5.3930E+03  1.0578E+06
+                    15.0000       17.7161      5.3936E+03  1.0761E+06
+   32    76   103   15.0000       17.6301      5.3939E+03  1.0945E+06
+                    15.0000       17.5441      5.3938E+03  1.1128E+06
+   33    76   102   15.0000       17.4582      5.3935E+03  1.1311E+06
+                    15.0000       17.3722      5.3928E+03  1.1494E+06
+   34    76   101   15.0000       17.2862      5.3919E+03  1.1678E+06
+                    15.0000       17.2003      5.3906E+03  1.1861E+06
+   35    76   100   15.0000       17.1143      5.3890E+03  1.2044E+06
+                    15.0000       17.0283      5.3871E+03  1.2227E+06
+   36    76    99   15.0000       16.9424      5.3849E+03  1.2410E+06
+                    15.0000       16.8564      5.3824E+03  1.2593E+06
+   37    76    98   15.0000       16.7704      5.3796E+03  1.2776E+06
+                    15.0000       16.6845      5.3765E+03  1.2959E+06
+   38    76    97   15.0000       16.5985      5.3730E+03  1.3141E+06
+                    15.0000       16.5125      5.3693E+03  1.3324E+06
+   39    76    96   15.0000       16.4266      5.3652E+03  1.3507E+06
+                    15.0000       16.3406      5.3608E+03  1.3688E+06
+   40    76    95   15.0000       16.2546      5.3561E+03  1.3871E+06
+                    15.0000       16.1687      5.3511E+03  1.4053E+06
+   41    76    94   15.0000       16.0827      5.3458E+03  1.4235E+06
+                    15.0000       15.9967      5.3402E+03  1.4416E+06
+   42    76    93   15.0000       15.9108      5.3342E+03  1.4597E+06
+                    15.0000       15.8248      5.3280E+03  1.4779E+06
+   43    76    92   15.0000       15.7388      5.3214E+03  1.4960E+06
+                    15.0000       15.6529      5.3146E+03  1.5140E+06
+   44    76    91   15.0000       15.5669      5.3074E+03  1.5321E+06
+                    15.0000       15.4809      5.2999E+03  1.5502E+06
+   45    76    90   15.0000       15.3950      5.2921E+03  1.5682E+06
+                    15.0000       15.3090      5.2840E+03  1.5861E+06
+   46    76    89   15.0000       15.2230      5.2756E+03  1.6041E+06
+                    15.0000       15.1371      5.2668E+03  1.6220E+06
+   47    76    88   15.0000       15.0511      5.2578E+03  1.6399E+06
+                    15.0000       14.9651      5.2485E+03  1.6577E+06
+   48    76    87   15.0000       14.8792      5.2388E+03  1.6756E+06
+                    15.0000       14.7932      5.2288E+03  1.6934E+06
+   49    76    86   15.0000       14.7072      5.2186E+03  1.7112E+06
+                    15.0000       14.6213      5.2080E+03  1.7289E+06
+   50    76    85   15.0000       14.5353      5.1971E+03  1.7466E+06
+                    15.0000       14.4493      5.1859E+03  1.7643E+06
+   51    76    84   15.0000       14.3634      5.1744E+03  1.7819E+06
+                    15.0000       14.2774      5.1626E+03  1.7994E+06
+   52    76    83   15.0000       14.1914      5.1505E+03  1.8170E+06
+                    15.0000       14.1055      5.1381E+03  1.8345E+06
+   53    76    82   15.0000       14.0195      5.1254E+03  1.8520E+06
+                    15.0000       13.9335      5.1124E+03  1.8694E+06
+   54    76    81   15.0000       13.8476      5.0991E+03  1.8867E+06
+                    15.0000       13.7616      5.0854E+03  1.9041E+06
+   55    76    80   15.0000       13.6756      5.0715E+03  1.9214E+06
+                    15.0000       13.5897      5.0573E+03  1.9386E+06
+   56    76    79   15.0000       13.5037      5.0428E+03  1.9558E+06
+                    15.0000       13.4177      5.0279E+03  1.9729E+06
+   57    76    78   15.0000       13.3318      5.0128E+03  1.9901E+06
+                    15.0000       13.2458      4.9974E+03  2.0071E+06
+   58    76    77   15.0000       13.1598      4.9817E+03  2.0240E+06
+                    15.0000       13.0739      4.9657E+03  2.0410E+06
+   59    76    76   15.0000       12.9879      4.9494E+03  2.0580E+06
+                    15.0000       12.9019      4.9327E+03  2.0747E+06
+   60    76    75   15.0000       12.8160      4.9158E+03  2.0915E+06
+                    15.0000       12.7300      4.8986E+03  2.1082E+06
+   61    76    74   15.0000       12.6440      4.8812E+03  2.1249E+06
+                    15.0000       12.5581      4.8634E+03  2.1415E+06
+   62    76    73   15.0000       12.4721      4.8453E+03  2.1580E+06
+                    15.0000       12.3861      4.8269E+03  2.1745E+06
+   63    76    72   15.0000       12.3002      4.8083E+03  2.1910E+06
+                    15.0000       12.2142      4.7893E+03  2.2073E+06
+   64    76    71   15.0000       12.1282      4.7701E+03  2.2236E+06
+                    15.0000       12.0423      4.7506E+03  2.2398E+06
+   65    76    70   15.0000       11.9563      4.7308E+03  2.2561E+06
+                    15.0000       11.8703      4.7107E+03  2.2721E+06
+   66    76    69   15.0000       11.7844      4.6904E+03  2.2881E+06
+                    15.0000       11.6984      4.6697E+03  2.3041E+06
+   67    76    68   15.0000       11.6124      4.6488E+03  2.3201E+06
+                    15.0000       11.5265      4.6275E+03  2.3358E+06
+   68    76    67   15.0000       11.4405      4.6061E+03  2.3516E+06
+                    15.0000       11.3545      4.5843E+03  2.3673E+06
+   69    76    66   15.0000       11.2686      4.5622E+03  2.3830E+06
+                    15.0000       11.1826      4.5399E+03  2.3985E+06
+   70    76    65   15.0000       11.0966      4.5173E+03  2.4139E+06
+                    15.0000       11.0107      4.4944E+03  2.4294E+06
+   71    76    64   15.0000       10.9247      4.4713E+03  2.4448E+06
+                    15.0000       10.8387      4.4478E+03  2.4599E+06
+   72    76    63   15.0000       10.7528      4.4241E+03  2.4751E+06
+                    15.0000       10.6668      4.4002E+03  2.4903E+06
+   73    76    62   15.0000       10.5808      4.3760E+03  2.5054E+06
+                    15.0000       10.4949      4.3514E+03  2.5202E+06
+   74    76    61   15.0000       10.4089      4.3267E+03  2.5351E+06
+                    15.0000       10.3229      4.3017E+03  2.5499E+06
+   75    76    60   15.0000       10.2370      4.2764E+03  2.5647E+06
+                    15.0000       10.1510      4.2508E+03  2.5792E+06
+   76    76    59   15.0000       10.0650      4.2250E+03  2.5937E+06
+                    15.0000       9.97908      4.1989E+03  2.6082E+06
+   77    76    58   15.0000       9.89311      4.1726E+03  2.6227E+06
+                    15.0000       9.80714      4.1460E+03  2.6369E+06
+   78    76    57   15.0000       9.72118      4.1191E+03  2.6511E+06
+                    15.0000       9.63521      4.0920E+03  2.6652E+06
+   79    76    56   15.0000       9.54924      4.0646E+03  2.6793E+06
+                    15.0000       9.46328      4.0370E+03  2.6932E+06
+   80    76    55   15.0000       9.37731      4.0091E+03  2.7070E+06
+                    15.0000       9.29134      3.9810E+03  2.7209E+06
+   81    76    54   15.0000       9.20538      3.9527E+03  2.7346E+06
+                    15.0000       9.11941      3.9240E+03  2.7481E+06
+   82    76    53   15.0000       9.03345      3.8952E+03  2.7616E+06
+                    15.0000       8.94748      3.8661E+03  2.7751E+06
+   83    76    52   15.0000       8.86151      3.8367E+03  2.7885E+06
+                    15.0000       8.77555      3.8071E+03  2.8017E+06
+   84    76    51   15.0000       8.68958      3.7773E+03  2.8148E+06
+                    15.0000       8.60361      3.7472E+03  2.8279E+06
+   85    76    50   15.0000       8.51765      3.7169E+03  2.8410E+06
+                    15.0000       8.43168      3.6864E+03  2.8538E+06
+   86    76    49   15.0000       8.34571      3.6556E+03  2.8665E+06
+                    15.0000       8.25975      3.6246E+03  2.8793E+06
+   87    76    48   15.0000       8.17378      3.5933E+03  2.8920E+06
+                    15.0000       8.08782      3.5618E+03  2.9044E+06
+   88    76    47   15.0000       8.00185      3.5301E+03  2.9168E+06
+                    15.0000       7.91588      3.4981E+03  2.9292E+06
+   89    76    46   15.0000       7.82992      3.4659E+03  2.9415E+06
+                    15.0000       7.74395      3.4335E+03  2.9536E+06
+   90    76    45   15.0000       7.65798      3.4009E+03  2.9657E+06
+                    15.0000       7.57202      3.3680E+03  2.9777E+06
+   91    76    44   15.0000       7.48605      3.3349E+03  2.9897E+06
+                    15.0000       7.40008      3.3016E+03  3.0014E+06
+   92    76    43   15.0000       7.31412      3.2681E+03  3.0132E+06
+                    15.0000       7.22815      3.2343E+03  3.0248E+06
+   93    76    42   15.0000       7.14218      3.2003E+03  3.0364E+06
+                    15.0000       7.05622      3.1661E+03  3.0479E+06
+   94    76    41   15.0000       6.97025      3.1316E+03  3.0593E+06
+                    15.0000       6.88429      3.0970E+03  3.0706E+06
+   95    76    40   15.0000       6.79832      3.0621E+03  3.0819E+06
+                    15.0000       6.71235      3.0270E+03  3.0931E+06
+   96    76    39   15.0000       6.62639      2.9917E+03  3.1042E+06
+                    15.0000       6.54042      2.9562E+03  3.1152E+06
+   97    76    38   15.0000       6.45445      2.9204E+03  3.1261E+06
+                    15.0000       6.36849      2.8844E+03  3.1371E+06
+   98    76    37   15.0000       6.28252      2.8482E+03  3.1480E+06
+                    15.0000       6.19655      2.8118E+03  3.1587E+06
+   99    76    36   15.0000       6.11059      2.7751E+03  3.1694E+06
+                    15.0000       6.02462      2.7383E+03  3.1803E+06
+  100    76    35   15.0000       5.93866      2.7012E+03  3.1910E+06
+                    15.0000       5.85269      2.6638E+03  3.2015E+06
+  101    76    34   15.0000       5.76672      2.6263E+03  3.2120E+06
+                    15.0000       5.68076      2.5885E+03  3.2229E+06
+  102    76    33   15.0000       5.59479      2.5505E+03  3.2336E+06
+                    15.0000       5.50882      2.5122E+03  3.2441E+06
+  103    76    32   15.0000       5.42286      2.4737E+03  3.2544E+06
+                    15.0000       5.33689      2.4350E+03  3.2657E+06
+  104    76    31   15.0000       5.25092      2.3960E+03  3.2764E+06
+                    15.0000       5.16496      2.3567E+03  3.2870E+06
+  105    76    30   15.0000       5.07899      2.3172E+03  3.2975E+06
+                    15.0000       4.99303      2.2774E+03  3.3094E+06
+  106    76    29   15.0000       4.90706      2.2374E+03  3.3207E+06
+                    15.0000       4.82109      2.1970E+03  3.3317E+06
+  107    76    28   15.0000       4.73513      2.1564E+03  3.3424E+06
+                    15.0000       4.64916      2.1155E+03  3.3559E+06
+  108    76    27   15.0000       4.56319      2.0741E+03  3.3682E+06
+                    15.0000       4.47723      2.0325E+03  3.3802E+06
+  109    76    26   15.0000       4.39126      1.9905E+03  3.3917E+06
+                    15.0000       4.30529      1.9483E+03  3.4083E+06
+  110    76    25   15.0000       4.21933      1.9054E+03  3.4227E+06
+                    15.0000       4.13336      1.8622E+03  3.4365E+06
+  111    76    24   15.0000       4.04739      1.8185E+03  3.4498E+06
+                    15.0000       3.96143      1.7746E+03  3.4729E+06
+  112    76    23   15.0000       3.87546      1.7297E+03  3.4914E+06
+                    15.0000       3.78950      1.6843E+03  3.5092E+06
+  113    76    22   15.0000       3.70353      1.6383E+03  3.5261E+06
+                    15.0000       3.61756      1.5919E+03  3.5647E+06
+  114    76    21   15.0000       3.53160      1.5440E+03  3.5923E+06
+                    15.0000       3.44563      1.4952E+03  3.6184E+06
+  115    76    20   15.0000       3.35966      1.4455E+03  3.6430E+06
+                    15.0000       3.27370      1.3952E+03  3.7314E+06
+  116    76    19   15.0000       3.18773      1.3417E+03  3.7804E+06
+                    15.0000       3.10176      1.2867E+03  3.8265E+06
+  117    76    18   15.0000       3.01580      1.2300E+03  3.8694E+06
+                    15.0000       2.92983      1.1698E+03  4.2058E+06
+  118    76    17   15.0000       2.84387      1.1018E+03  4.3075E+06
+                    15.0000       2.75790      1.0304E+03  4.4021E+06
+  119    76    16   15.0000       2.67193      9.5549E+02  4.4888E+06
+                    15.0000       2.58597      8.2054E+02  4.8642E+06
+  120    76    15   15.0000       2.50000      7.5109E+02  4.6322E+06
+
+Summary for the above wall segment:
+Emax         =  4.8642E+06 V/m
+Hmax         =  5.3939E+03 A/m
+Surface Area =  1.6365E+03 cm^2
+Power        =  1.1159E+04 W
+Maximum P/A  =  8.4870E+00 W/cm^2
+Average P/A  =  6.8189E+00 W/cm^2
+df/dz        = -1.1581E-02 MHz/mm (for volume added to the cavity)
+df/f         = -2.3159E-05
+-------------------------------------------------------------------------------
+Power and fields on wall segment 4.     K,L = 76,15 to 101,15
+This segment uses surface resistance option IRTYPE = 0
+Surface resistance,          Rs =  5.834236E-03 Ohm calculated from:
+Operating temperature,    TEMPC =  20.000 C
+Reference resistivity,     RHOR =  1.724100E-06 Ohm-cm
+Reference temperature,    TEMPR =  20.000 C
+Temperature coefficient, ALPHAT =  3.930000E-03 /C
+Relative permeability,     RFMU =  1.000
+
+   m     K     L        Z             R            H          |E|
+                      (cm)          (cm)         (A/m)       (V/m)
+    1    76    15   15.0000       2.50000      7.5109E+02  4.6322E+06
+                    15.1000       2.50000      6.5591E+02  4.5800E+06
+    2    77    15   15.2000       2.50000      5.7201E+02  4.1689E+06
+                    15.3000       2.50000      4.3255E+02  2.1549E+06
+    3    78    15   15.4000       2.50000      3.7762E+02  1.7939E+06
+                    15.5000       2.50000      3.3351E+02  1.5172E+06
+    4    79    15   15.6000       2.50000      2.9467E+02  1.2755E+06
+                    15.7000       2.50000      2.6480E+02  1.1168E+06
+    5    80    15   15.8000       2.50000      2.3592E+02  9.5920E+05
+                    15.9000       2.50000      2.1298E+02  8.5208E+05
+    6    81    15   16.0000       2.50000      1.9078E+02  7.4367E+05
+                    16.1000       2.50000      1.7259E+02  6.6594E+05
+    7    82    15   16.2000       2.50000      1.5516E+02  5.8731E+05
+                    16.3000       2.50000      1.4058E+02  5.2869E+05
+    8    83    15   16.4000       2.50000      1.2669E+02  4.6948E+05
+                    16.5000       2.50000      1.1493E+02  4.2415E+05
+    9    84    15   16.6000       2.50000      1.0376E+02  3.7841E+05
+                    16.7000       2.50000      9.4214E+01  3.4274E+05
+   10    85    15   16.8000       2.50000      8.5179E+01  3.0678E+05
+                    16.9000       2.50000      7.7404E+01  2.7836E+05
+   11    86    15   17.0000       2.50000      7.0058E+01  2.4971E+05
+                    17.1000       2.50000      6.3709E+01  2.2686E+05
+   12    87    15   17.2000       2.50000      5.7718E+01  2.0383E+05
+                    17.3000       2.50000      5.2525E+01  1.8531E+05
+   13    88    15   17.4000       2.50000      4.7629E+01  1.6666E+05
+                    17.5000       2.50000      4.3376E+01  1.5157E+05
+   14    89    15   17.6000       2.50000      3.9370E+01  1.3638E+05
+                    17.7000       2.50000      3.5887E+01  1.2402E+05
+   15    90    15   17.8000       2.50000      3.2610E+01  1.1158E+05
+                    17.9000       2.50000      2.9758E+01  1.0142E+05
+   16    91    15   18.0000       2.50000      2.7079E+01  9.1190E+04
+                    18.1000       2.50000      2.4749E+01  8.2782E+04
+   17    92    15   18.2000       2.50000      2.2564E+01  7.4334E+04
+                    18.3000       2.50000      2.0666E+01  6.7344E+04
+   18    93    15   18.4000       2.50000      1.8890E+01  6.0328E+04
+                    18.5000       2.50000      1.7352E+01  5.4478E+04
+   19    94    15   18.6000       2.50000      1.5918E+01  4.8613E+04
+                    18.7000       2.50000      1.4681E+01  4.3674E+04
+   20    95    15   18.8000       2.50000      1.3535E+01  3.8732E+04
+                    18.9000       2.50000      1.2554E+01  3.4514E+04
+   21    96    15   19.0000       2.50000      1.1653E+01  3.0304E+04
+                    19.1000       2.50000      1.0891E+01  2.6649E+04
+   22    97    15   19.2000       2.50000      1.0200E+01  2.3014E+04
+                    19.3000       2.50000      9.6296E+00  1.9786E+04
+   23    98    15   19.4000       2.50000      9.1235E+00  1.6599E+04
+                    19.5000       2.50000      8.7352E+00  1.3665E+04
+   24    99    15   19.6000       2.50000      8.3930E+00  1.0932E+04
+                    19.7000       2.50000      8.1349E+00  8.0044E+03
+   25   100    15   19.8000       2.50000      7.9494E+00  5.3363E+03
+                    19.9000       2.50000      7.8411E+00  2.6356E+03
+   26   101    15   20.0000       2.50000      7.8044E+00  0.0000E+00
+
+Summary for the above wall segment:
+Emax         =  4.6322E+06 V/m
+Hmax         =  6.5591E+02 A/m
+Surface Area =  7.8540E+01 cm^2
+Power        =  8.8502E-01 W
+Maximum P/A  =  1.2550E-01 W/cm^2
+Average P/A  =  1.1268E-02 W/cm^2
+df/dr        =  2.6550E-02 MHz/mm (for volume added to the cavity)
+df/f         =  5.3090E-05
+-------------------------------------------------------------------------------
+Transit-time factor summary
+
+Input data for Parmila; originating program = Autofish.
+Cavity type: Unknown RF Cavity
+Design frequency     =   500.087     MHz
+Resonant frequency   =   500.087     MHz
+Design beta          =   1.00000    
+Particle beta        =   1.00000    
+Cavity E0            =   2.61799     MV/m
+Transit-time factor  =  0.621858    
+Normalization length =   20.0000     cm
+
+Cell  Zstart(cm)      Zcenter(cm)    Zend(cm)      Lnorm(cm)       E0(MV/m)      g/bl
+  1    0.00000        0.00000        20.0000        20.0000        2.61799       0.500433    
+
+Cell   1  Beta =   1.00000     dZctr =   0.00000    
+X       X1            X2             X1+X2         |X1|+|X2|
+T    0.3109289      0.3109289      0.6218578      0.6218578    
+T'   5.1915282E-02  5.1915282E-02  0.1038306      0.1038306    
+T"   3.3655647E-03  3.3655647E-03  6.7311295E-03  6.7311295E-03
+S   -0.3189780      0.3189780       0.000000      0.6379561    
+S'  -2.7265749E-02  2.7265749E-02   0.000000      5.4531498E-02
+S"  -9.7704689E-03  9.7704689E-03   0.000000      1.9540938E-02
+
+SFDATA line expected in old versions of Parmila:
+   1.00000      0.621858      0.103831      0.318978      2.726575E-02  0.500433       53.1455    
+-------------------------------------------------------------------------------
+
+Problem variables computed by this code.
+
+Variable Code         Value     Description
+ASCALE           17345.9504     Scaling factor for H at drive point
+CAPK            0.104810537     2pi/beta*lambda, phase change/length
+DPHI             120.104029     Phase length of the problem geometry
+EMAX             4632194.26     Peak electric field on boundary segments
+ENERGY          0.361333076     Total stored energy in RF fields
+EZERO      A     2617993.88     E0 for normalization in SFO when NORM=0
+EZEROT           1628019.80     E0*T for normalization in SFO when NORM=1
+FREQC            500.087250     Frequency corrected for stems and posts
+HCORNER                 0.0     Average H at corner arc with coupling slot
+HMAX             5393.85415     Peak H on specified boundary segments
+HPHI             4815.22965     Normalization magnetic field for NORM=2
+NCELL                     0     Number of cells for multicell problems
+NPEG                      3     Number of FieldSegments entries
+NRESIST                   0     Number of segments with unique resistivity
+NSTEM                     0     Number of stems for multicell problems
+POWER            25792.9106     Power on conducting boundaries
+RHOC            1.724100000E-06 Computed resistivity for IRTYPE=3
+RS              5.834235900E-03 RF surface resistance (Ohms)
+SAREA            3878.96089     Total surface area in power calculations
+T               0.621857756     Transit-time factor
+ZLONG            20.0000000     Length in SFO used to define E0
+
+Superfish output summary for problem description:
+            teste
+Problem file: C:\USERS\VITOR25023\DOCUMENTS\TESTE EM LOTE\((5.0, 2.5)).AF  1-12-2026  16:41:56
+-------------------------------------------------------------------------------
+All calculated values below refer to the mesh geometry only.
+Field normalization (NORM = 0):     EZERO =      2.61799 MV/m
+Frequency                                 =    500.08725 MHz
+Particle rest mass energy                 =     0.511000 MeV
+Beta =  1.0000000
+Normalization factor for E0 =  2.618 MV/m =    17345.950
+Transit-time factor                       =    0.6218578
+Stored energy                             =    0.3613331 Joules
+Using standard room-temperature copper.
+Surface resistance                        =      5.83424 milliOhm
+Normal-conductor resistivity              =      1.72410 microOhm-cm
+Operating temperature                     =      20.0000 C
+Power dissipation                         =      25.7929 kW
+Q    =   44018.3          Shunt impedance =       53.146 MOhm/m
+Rs*Q =   256.813 Ohm                Z*T*T =       20.552 MOhm/m
+r/Q  =    93.378 Ohm  Wake loss parameter =      0.07335 V/pC
+Average magnetic field on the outer wall  =      4814.69 A/m, 6.76224 W/cm^2
+Maximum H (at Z,R = 15,17.6301)           =      5393.85 A/m, 8.48696 W/cm^2
+Maximum E (at Z,R = 15,2.5)               =      4.63219 MV/m, 0.217482 Kilp.
+Ratio of peak fields Bmax/Emax            =       1.4633 mT/(MV/m)
+Peak-to-average ratio Emax/E0             =       1.7694
+
+Wall segments:
+Segment   Zend        Rend           Emax       Power       P/A          dF/dZ      dF/dR
+          (cm)        (cm)          (MV/m)      (kW)      (W/cm^2)      (MHz/mm)   (MHz/mm)
+----------------------------------------------------------------------------------------------
+         0.0000       22.960    
+   2     15.000       22.960       4.8221E-04   14.63       6.762       0.000      -2.181    
+   3     15.000       2.5000        4.864       11.16       6.819     -1.1581E-02   0.000    
+   4     20.000       2.5000        4.632      8.8502E-04  1.1268E-02   0.000      2.6550E-02
+----------------------------------------------------------------------------------------------
+                                    Total       25.79    
